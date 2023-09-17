@@ -4,6 +4,8 @@ List of Language Files For csprite rewrite branch, To add your own language file
 **Make Sure to Read [The Contributor License Agreement](https://github.com/csprite/.github/blob/master/CLA.md), before making a PR**
 
 - [English](./english.json?raw=true)
+- [German](./german.json?raw=true)
+- [Maltese](./maltese.json?raw=true)
 - [Polish](./polish.json?raw=true)
 
 ---
