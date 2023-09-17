@@ -16,5 +16,5 @@ These are the awesome people who put in their time & effort for free to provide 
   <img src="https://contributors-img.firebaseapp.com/image?repo=csprite/languages&max=10000" />
 </a>
 <a href="https://github.com/csprite/languages/graphs/contributors">
-  <img src="https://contributors-img.firebaseapp.com/image?repo=csprite/languages&max=10000" />
+  <img src="https://contributors-img.firebaseapp.com/image?repo=csprite/languages&max=1" />
 </a>
