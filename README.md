@@ -18,6 +18,6 @@ If your language uses characters other than in ASCII then you should also add a 
 These are the awesome people who put in their time & effort for free to provide 1 or more Languages files.
 
 <a href="https://github.com/csprite/languages/graphs/contributors">
-  <img src="https://contributors-img.firebaseapp.com/image?repo=csprite/languages&max=10000" />
+  <img width="500" src="https://csprite.github.io/contrib-collage/csprite-languages.png" />
 </a>
 
