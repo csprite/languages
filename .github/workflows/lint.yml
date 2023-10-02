@@ -20,3 +20,8 @@ jobs:
     - name: Lint Languages Files
       run: |
         python3 ValidateLangFiles.py
+
+    - name: Update Contributor Image Cache
+      if: ${{ github.event.pull_request.merged == true }}
+      run: |
+        curl -X PURGE "https://contributors-img.firebaseapp.com/image?repo=csprite/languages&max=100000"
