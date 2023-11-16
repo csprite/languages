@@ -16,7 +16,8 @@ ConfigStructure = {
 	],
 	"about_csprite_popup": [
 		"title", "contributors_header", "contributors_paragraph",
-		"contributors_link", "os_projects_header", "os_projects_text"
+		"contributors_link", "os_projects_header", "os_projects_text",
+		"close_button"
 	],
 	"unicode_range": [ "range" ]
 }
