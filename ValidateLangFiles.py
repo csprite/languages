@@ -36,12 +36,12 @@ for f in Files:
 
 		for Section in ConfigStructure:
 			if not Section in config:
-				print(f"::warning file={f},title='Section '{Section}' Not Found'")
+				sys.stdout.write("::warning file=\"" + f + "\",title=\"Section '" + Section + "' Not Found\"\n")
 				break
 
 			for SubSection in ConfigStructure[Section]:
 				if not SubSection in config[Section]:
-					print(f"::warning file={f},title='Sub-Section '{SubSection}' of '{Section}' Not Found'")
+					sys.stdout.write("::warning file=\"" + f + "\",title=\"Sub-Section '" + SubSection + "' of '" + Section + "' Not Found\"\n")
 
 	except Exception as e:
 		print(f"::error file='{f}',title='Unhandled Error Occurred'::'{e}'")
