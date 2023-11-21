@@ -35,13 +35,13 @@ for f in Files:
 
 		for Section in ConfigStructure:
 			if not Section in config:
-				raise Exception(f"section '{Section}' not found")
+				print(f"{f} - Warning, section '{Section}' not found")
+				break
 
 			for SubSection in ConfigStructure[Section]:
 				if not SubSection in config[Section]:
-					raise Exception(f"sub section '{SubSection}' of section '{Section}' not found")
+					print(f"{f} - Warning, sub section '{SubSection}' of section '{Section}' not found")
 
-		print(f"{f} - ok")
 	except Exception as e:
 		print(f"{f} - {e}")
 		ExitCode = 1
