@@ -19,8 +19,7 @@ jobs:
 
     - name: Lint Languages Files
       run: |
-        echo "$(python3 ValidateLangFiles.py)"
-        echo "::warning file=./english.ini::Missing semicolon"
+        echo "$(python3 ValidateLangFiles.py)" >> "$GITHUB_OUTPUT"
 
     - name: Update Contributor Image Cache
       if: ${{ github.event.pull_request.merged == true }}
