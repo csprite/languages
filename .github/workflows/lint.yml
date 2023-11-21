@@ -16,7 +16,7 @@ jobs:
       run: |
         sudo apt-get update -y
         sudo apt-get install python3 python3-pip -y
-        pip3 install github-action-utils --break-system-packages
+        pip3 install github-action-utils
 
     - name: Lint Languages Files
       run: |
