@@ -35,15 +35,15 @@ for f in Files:
 
 		for Section in ConfigStructure:
 			if not Section in config:
-				print(f"{f} - Warning, section '{Section}' not found")
+				print(f"::warning file={f},title='Section '{Section}' Not Found'")
 				break
 
 			for SubSection in ConfigStructure[Section]:
 				if not SubSection in config[Section]:
-					print(f"{f} - Warning, sub section '{SubSection}' of section '{Section}' not found")
+					print(f"::warning file={f},title='Sub-Section '{SubSection}' of '{Section}' Not Found'")
 
 	except Exception as e:
-		print(f"{f} - {e}")
+		print(f"::error file='{f}',title='Unhandled Error Occurred'::'{e}'")
 		ExitCode = 1
 
 sys.exit(ExitCode)
