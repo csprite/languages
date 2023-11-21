@@ -5,7 +5,7 @@ import os
 import sys
 import glob
 import configparser
-import subprocess
+import github_action_utils as gh
 
 ConfigStructure = {
 	"file_menu": [ "file", "new", "open" ],
@@ -26,12 +26,6 @@ ConfigStructure = {
 Files = []
 ExitCode = 0
 
-def log(msg):
-	try:
-		subprocess.call(["echo", msg])
-	except FileNotFoundError:
-		sys.stdout.write(msg + "\n")
-
 for f in glob.glob("./*.ini"):
 	if os.path.isfile(f):
 		Files.append(f)
@@ -43,15 +37,15 @@ for f in Files:
 
 		for Section in ConfigStructure:
 			if not Section in config:
-				log("::warning file=\"" + f + "\",title=\"Section '" + Section + "' Not Found\"")
+				gh.warning("", title="Section '" + Section + "' Not Found", file=f)
 				break
 
 			for SubSection in ConfigStructure[Section]:
 				if not SubSection in config[Section]:
-					log("::warning file=\"" + f + "\",title=\"Sub-Section '" + SubSection + "' of '" + Section + "' Not Found\"")
+					gh.warning("", title="Sub-Section '" + SubSection + "' of '" + Section + "' Not Found", file=f)
 
 	except Exception as e:
-		log(f"::error file='{f}',title='Unhandled Error Occurred'::'{str(e)}'")
+		gh.error(str(e), title="Unhandled Error Occurred", file=f)
 		ExitCode = 1
 
 sys.exit(ExitCode)
