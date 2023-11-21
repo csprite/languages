@@ -5,6 +5,7 @@ import os
 import sys
 import glob
 import configparser
+import subprocess
 
 ConfigStructure = {
 	"file_menu": [ "file", "new", "open" ],
@@ -25,6 +26,12 @@ ConfigStructure = {
 Files = []
 ExitCode = 0
 
+def log(msg):
+	try:
+		subprocess.call(["echo", msg])
+	except FileNotFoundError:
+		sys.stdout.write(msg + "\n")
+
 for f in glob.glob("./*.ini"):
 	if os.path.isfile(f):
 		Files.append(f)
@@ -36,15 +43,15 @@ for f in Files:
 
 		for Section in ConfigStructure:
 			if not Section in config:
-				sys.stdout.write("::warning file=\"" + f + "\",title=\"Section '" + Section + "' Not Found\"\n")
+				log("::warning file=\"" + f + "\",title=\"Section '" + Section + "' Not Found\"")
 				break
 
 			for SubSection in ConfigStructure[Section]:
 				if not SubSection in config[Section]:
-					sys.stdout.write("::warning file=\"" + f + "\",title=\"Sub-Section '" + SubSection + "' of '" + Section + "' Not Found\"\n")
+					log("::warning file=\"" + f + "\",title=\"Sub-Section '" + SubSection + "' of '" + Section + "' Not Found\"")
 
 	except Exception as e:
-		print(f"::error file='{f}',title='Unhandled Error Occurred'::'{e}'")
+		log(f"::error file='{f}',title='Unhandled Error Occurred'::'{str(e)}'")
 		ExitCode = 1
 
 sys.exit(ExitCode)
