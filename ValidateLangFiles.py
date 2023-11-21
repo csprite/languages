@@ -5,7 +5,6 @@ import os
 import sys
 import glob
 import configparser
-import github_action_utils as gh
 
 ConfigStructure = {
 	"file_menu": [ "file", "new", "open" ],
@@ -37,15 +36,15 @@ for f in Files:
 
 		for Section in ConfigStructure:
 			if not Section in config:
-				gh.warning("", title="Section '" + Section + "' Not Found", file=f)
+				sys.stdout.write("::warning file=\"" + f + "\",title=\"Section '" + Section + "' Not Found\"\n")
 				break
 
 			for SubSection in ConfigStructure[Section]:
 				if not SubSection in config[Section]:
-					gh.warning("", title="Sub-Section '" + SubSection + "' of '" + Section + "' Not Found", file=f)
+					sys.stdout.write("::warning file=\"" + f + "\",title=\"Sub-Section '" + SubSection + "' of '" + Section + "' Not Found\"\n")
 
 	except Exception as e:
-		gh.error(str(e), title="Unhandled Error Occurred", file=f)
+		sys.stdout.write(f"::error file='{f}',title='Unhandled Error Occurred'::'{str(e)}'\n")
 		ExitCode = 1
 
 sys.exit(ExitCode)
