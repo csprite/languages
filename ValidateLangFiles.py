@@ -36,7 +36,7 @@ for f in Files:
 
 		for Section in ConfigStructure:
 			if not Section in config:
-				sys.stdout.write("::warning file=\"" + f + "\",title=\"Section '" + Section + "' Not Found\"\n")
+				sys.stdout.write("::warning file=\"" + f + "\",title=\"Section '" + Section + "' Not Found\"::Lol\n")
 				break
 
 			for SubSection in ConfigStructure[Section]:
