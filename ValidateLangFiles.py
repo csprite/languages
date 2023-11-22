@@ -41,7 +41,7 @@ for f in Files:
 
 			for SubSection in ConfigStructure[Section]:
 				if not SubSection in config[Section]:
-					sys.stdout.write("::warning file=\"" + f + "\",title=\"Sub-Section '" + SubSection + "' of '" + Section + "' Not Found\"\n")
+					sys.stdout.write("::warning file=\"" + f + "\",title=\"Sub-Section '" + SubSection + "' of '" + Section + "' Not Found\"::Lol\n")
 
 	except Exception as e:
 		sys.stdout.write(f"::error file='{f}',title='Unhandled Error Occurred'::'{str(e)}'\n")
