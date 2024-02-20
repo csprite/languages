@@ -1,4 +1,4 @@
-module.exports = {
+var Structure = {
 	"file_menu": {
 		"file": { required: true },
 		"new":  { required: true },
@@ -31,3 +31,7 @@ module.exports = {
 		"range": { required: false }
 	}
 }
+
+try {
+   module.exports = Structure;
+} catch (e) {}
