@@ -4,9 +4,6 @@ on:
     branches: [ master ]
   pull_request:
 
-env:
-  PYTHONUNBUFFERED: "1"
-
 jobs:
   lint:
     runs-on: ubuntu-22.04
@@ -15,14 +12,16 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Install Python
-      run: |
-        sudo apt-get update -y
-        sudo apt-get install python3 -y
+    - name: Setup Node.js 
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
 
-    - name: Lint Languages Files
-      run: |
-        python3 ValidateLangFiles.py
+    - name: Install NPM Packages
+      run: npm ci
+
+    - name: Lint
+      run: npm test
 
     - name: Update Contributor Image Cache
       if: ${{ github.event.pull_request.merged == true }}
