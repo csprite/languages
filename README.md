@@ -1,7 +1,6 @@
 # Languages
 List of Language Files For csprite rewrite branch
 
-- [English](./english.ini?raw=true)
 - [German](./german.ini?raw=true)
 - [Maltese](./maltese.ini?raw=true)
 - [Polish](./polish.ini?raw=true)
