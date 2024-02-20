@@ -4,13 +4,15 @@ const core = require("@actions/core");
 const process = require("process");
 const structure = require("./structure.js");
 
-const FilesToLint = fs.readdirSync("./").filter(function(filePath) {
+const FilesToLint = fs.readdirSync("./languages/").filter(function(filePath) {
 	return filePath.toLowerCase().endsWith(".ini");
 });
 
 var ExitCode = 0;
 
 FilesToLint.forEach(function(filePath) {
+	filePath = "./languages/" + filePath;
+
 	const Parsed = ini.parse(fs.readFileSync(filePath, 'utf-8'))
 	let warnings = 0;
 	let errors = 0;

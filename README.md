@@ -1,9 +1,9 @@
 # Languages
 List of Language files for csprite
 
-- [German](./german.ini?raw=true)
-- [Maltese](./maltese.ini?raw=true)
-- [Polish](./polish.ini?raw=true)
+- [German](./languages/german.ini?raw=true)
+- [Maltese](./languages/maltese.ini?raw=true)
+- [Polish](./languages/polish.ini?raw=true)
 
 ## Want to add a Language File?
 To write your own Translation file, read [structure.js](./structure.js) & [csprite/csprite - english.ini](https://github.com/csprite/csprite/blob/master/data/english.ini)
